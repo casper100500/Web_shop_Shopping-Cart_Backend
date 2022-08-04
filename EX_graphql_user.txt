@@ -1,0 +1,21 @@
+//createUser
+mutation {
+  createUser(userInput:{
+     email:"casper2002@yahoo.com",
+     password:"123"
+  }){email,
+    password  
+  }
+}
+
+//Login
+
+query
+{
+  login(email:"casper2002@yahoocom",password:"123")
+  {
+    token
+    userId
+    tokenExpiration
+  }
+}
