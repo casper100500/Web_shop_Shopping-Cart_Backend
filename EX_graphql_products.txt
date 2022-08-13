@@ -1,0 +1,9 @@
+query{
+  products(findStr:"{'title':'Mortal Kombat'}"){
+    _id,
+    title,
+    description,
+    price,
+    imagePath
+  }
+}

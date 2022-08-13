@@ -44,7 +44,8 @@ const connectMongoDB=`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONG
 //console.log(connectMongoDB)
 
 mongoose.connect(connectMongoDB).then(()=>{
-    app.listen(5000);
+    console.log(`Server started. Listen port ${process.env.expressPort}.`)
+    app.listen(process.env.expressPort);
 }).catch(err=>{
     console.log(err);
 })

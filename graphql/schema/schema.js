@@ -1,6 +1,13 @@
 const {buildSchema} = require('graphql')
 module.exports = buildSchema(`
+type Product {
+  _id:ID!
+  imagePath: String!
+  title: String!
+  description: String!
+  price: Int!
 
+}
 
 type User {
   _id: ID!
@@ -21,6 +28,7 @@ input UserInput {
 }
 
 type RootQuery {
+    products(findStr:String,ObjectId:String): [Product]
     login(email:String!,password: String!): AuthData!
 }
 type RootMutation {

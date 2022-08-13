@@ -12,7 +12,7 @@ mutation {
 
 query
 {
-  login(email:"casper2002@yahoocom",password:"123")
+  login(email:"casper2002@yahoo.com",password:"123")
   {
     token
     userId
