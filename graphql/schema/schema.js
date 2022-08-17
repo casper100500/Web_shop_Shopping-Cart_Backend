@@ -6,8 +6,14 @@ type Product {
   title: String!
   description: String!
   price: Int!
+}
+
+type Products {
+  Products:[Product]
+  TotalCount:Int
 
 }
+
 
 type User {
   _id: ID!
@@ -29,6 +35,7 @@ input UserInput {
 
 type RootQuery {
     products(findStr:String, PageNum:Int, PageLimit:Int): [Product]
+    productsALL(findStr:String, PageNum:Int, PageLimit:Int): Products
     login(email:String!,password: String!): AuthData!
 }
 type RootMutation {
