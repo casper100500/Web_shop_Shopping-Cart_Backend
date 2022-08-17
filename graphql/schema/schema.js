@@ -28,7 +28,7 @@ input UserInput {
 }
 
 type RootQuery {
-    products(findStr:String,ObjectId:String): [Product]
+    products(findStr:String, PageNum:Int, PageLimit:Int): [Product]
     login(email:String!,password: String!): AuthData!
 }
 type RootMutation {
