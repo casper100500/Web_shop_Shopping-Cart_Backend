@@ -39,13 +39,25 @@ app.use(
     graphiql: true
   })
 );
-const connectMongoDB=`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}
-@cluster0.rwg46sl.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`
-//console.log(connectMongoDB)
 
-mongoose.connect(connectMongoDB).then(()=>{
-    console.log(`Server started. Listen port ${process.env.expressPort}.`)
-    app.listen(process.env.expressPort);
-}).catch(err=>{
-    console.log(err);
-})
+if (1===2)
+{
+
+const mongoDBurl='mongodb://localhost:27017/shopping'
+mongoose.connect(mongoDBurl)
+app.listen(process.env.expressPort);
+}
+else
+{
+
+ const connectMongoDB=`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.rwg46sl.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`
+ console.log(connectMongoDB)
+
+
+ mongoose.connect(connectMongoDB).then(()=>{
+     console.log(`Server started. Listen port ${process.env.expressPort}.`)
+     app.listen(process.env.expressPort);
+ }).catch(err=>{
+     console.log(err);
+ })
+}

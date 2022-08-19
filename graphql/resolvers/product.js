@@ -1,4 +1,5 @@
 const Product = require('../../models/product');
+const Order = require('../../models/order');
 var ObjectId = require('mongodb').ObjectId;
 
 const MongodbQueryParser = require('mongodb-query-parser');
@@ -67,10 +68,7 @@ module.exports =
         //console.log(count)
         TotalCount=count
       })
-      //.skip(PageNum).limit(PageLimit)
-      // ,
-      //   $skip: PageNum,
-      //   $limit: PageLimit
+ 
     }
 
     
@@ -85,6 +83,27 @@ module.exports =
 
 
 
+    },
+    createOrder: async args => {
+      try {
+  
+         const order = new Order({
+          OrderCart: args.orderInput.orderCart,
+          User:args.orderInput.email,
+          PaymentID:args.orderInput.PaymentID,
+          PaymentStatus:args.orderInput.PaymentStatus,
+          SessionID:args.orderInput.SessionID
+        })
+  
+        const result = await order.save();
+  
+  
+        //return { ...result._doc, password: null, _id: result.id };
+        return {...order._doc};
+      }
+      catch (err) {
+        throw err;
+      };
     }
   
   }
