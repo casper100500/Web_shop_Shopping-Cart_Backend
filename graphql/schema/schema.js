@@ -15,20 +15,39 @@ type Products {
 }
 
 
+type Orders {
+  Orders:[Order]
+  TotalCount:Int
+}
+
 type Order {
   _id:ID!
-  OrderCart: Products!
+  OrderCart: Items!
   User: String!
   PaymentID: String!
   PaymentStatus: String!
   SessionID: String!
 }
 
+type Item {
+  product:Product
+  ItmQty:Int
+  ItmPrice:Int
+}
+
+type Items {
+  Items:[Item]
+  totalQty:Int
+  totalPrice:Int
+}
+
+
 type OrderPayment {
   _id:ID!
   PaymentID: String
   PaymentStatus: String
   SessionID: String
+  clientSecret: String
 }
 
 
@@ -78,8 +97,8 @@ input ProductInput {
 }
 
 type RootQuery {
-    products(findStr:String, PageNum:Int, PageLimit:Int): [Product]
     productsALL(findStr:String, PageNum:Int, PageLimit:Int): Products
+    ordersALL(email:String, PageNum:Int, PageLimit:Int): Orders
     login(email:String!,password: String!): AuthData!
 }
 type RootMutation {

@@ -1,0 +1,22 @@
+query{ordersALL
+  (email:"casper2002",PageNum:1,PageLimit:100)
+  {
+    Orders{
+      OrderCart{
+      Items{
+        product
+        {_id,
+          title,
+          price,
+          imagePath
+        }
+        ItmQty,
+        ItmPrice
+      }
+        totalQty,
+        totalPrice
+      }
+      
+      User},
+TotalCount  }  
+}

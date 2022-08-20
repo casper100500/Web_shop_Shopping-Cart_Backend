@@ -1,8 +1,9 @@
 const Product = require('../../models/product');
-const Order = require('../../models/order');
 var ObjectId = require('mongodb').ObjectId;
 
 const MongodbQueryParser = require('mongodb-query-parser');
+
+
 module.exports =
 {
   
@@ -29,6 +30,7 @@ module.exports =
     console.log(objStr)
 
     var products = new Product
+    
     var TotalCount=1
 
     if (objStr.substr(0, 1) === "{") {
@@ -83,27 +85,7 @@ module.exports =
 
 
 
-    },
-    createOrder: async args => {
-      try {
-  
-         const order = new Order({
-          OrderCart: args.orderInput.orderCart,
-          User:args.orderInput.email,
-          PaymentID:args.orderInput.PaymentID,
-          PaymentStatus:args.orderInput.PaymentStatus,
-          SessionID:args.orderInput.SessionID
-        })
-  
-        const result = await order.save();
-  
-  
-        //return { ...result._doc, password: null, _id: result.id };
-        return {...order._doc};
-      }
-      catch (err) {
-        throw err;
-      };
     }
+    
   
   }
