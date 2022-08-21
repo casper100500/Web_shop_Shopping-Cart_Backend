@@ -77,7 +77,31 @@ module.exports =
 
     try {
       var TotalCount = 0
+      var objStr = ''
 
+      //findStr....
+      if (args.findStr!==undefined)
+      {
+      objStr = args.findStr.replace(/'/gi, '"')
+      console.log(objStr)
+      
+
+      
+        console.log('Custom request detected')
+        obj = JSON.parse(objStr)
+        console.log(obj)
+  
+        if (objStr.substr(0, 7) === `{"_id":`) {
+          console.log('by id...')
+          const   order = Order.find(obj)
+
+         return { ...order._doc,Orders:order, TotalCount: 1 };
+        }
+        else {
+          return
+        }
+      }
+console.log('Orders ALL:')
       const order =  await Order.find({ User: args.email }
         //  ,
         //  function(err,docs){

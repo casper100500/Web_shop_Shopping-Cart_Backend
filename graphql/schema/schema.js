@@ -93,13 +93,13 @@ input ProductInput {
   _id:ID!
   imagePath: String
   title: String!
-  description: String
+  description: String!
   price: Int!
 }
 
 type RootQuery {
     productsALL(findStr:String, PageNum:Int, PageLimit:Int): Products
-    ordersALL(email:String, PageNum:Int, PageLimit:Int): Orders
+    ordersALL(findStr:String,email:String, PageNum:Int, PageLimit:Int): Orders
     login(email:String!,password: String!): AuthData!
 }
 type RootMutation {
