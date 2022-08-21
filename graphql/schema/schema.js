@@ -93,6 +93,7 @@ input ProductInput {
   _id:ID!
   imagePath: String
   title: String!
+  description: String
   price: Int!
 }
 

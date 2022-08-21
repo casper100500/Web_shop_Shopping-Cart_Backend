@@ -40,6 +40,13 @@ app.use(
   })
 );
 
+app.get('/',function(req,res){
+  res.send('Hello World666');
+
+}
+  
+);
+
 if (1===2)
 {
 

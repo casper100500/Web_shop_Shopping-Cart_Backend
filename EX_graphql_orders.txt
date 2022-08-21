@@ -20,3 +20,50 @@ query{ordersALL
       User},
 TotalCount  }  
 }
+
+mutation{
+  createOrder (orderInput:
+  {
+    
+    orderCart:{
+      Items:[{
+        product:{
+          _id: "62fa3832e73f022ebf594a33",
+      		title: "Far Cry 3",
+      		price: 10,
+      		imagePath: "https://upload.wikimedia.org/wikipedia/en/c/c6/Far_Cry_3_PAL_box_art.jpg?20190712000332"
+      
+        },ItmQty:1
+        ,ItmPrice:22
+        
+     
+      },
+      {
+        product:{
+          _id: "62fa3832e73f022ebf594a33",
+      		title: "Far Cry 3",
+      		price: 10,
+      		imagePath: "https://upload.wikimedia.org/wikipedia/en/c/c6/Far_Cry_3_PAL_box_art.jpg?20190712000332"
+      
+        },ItmQty:1333
+        ,ItmPrice:321312
+        
+     
+      }
+      
+      ],      
+      totalQty:123,
+      totalPrice:222
+      
+    }
+  ,
+    email:"123",
+    PaymentID:"123",
+    PaymentStatus:"123",
+    SessionID:"123"
+      }
+  ){_id,PaymentID,SessionID,PaymentStatus}
+  
+  
+  
+}
