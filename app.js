@@ -10,7 +10,19 @@ const graphQlResolvers = require('./graphql/resolvers/index')
 
 const app = express();
 
-app.use(bodyParser.json());
+///app.use(bodyParser.json());
+
+app.use(bodyParser.json({
+  limit: '50mb'
+}));
+
+app.use(bodyParser.urlencoded({
+  limit: '50mb',
+  parameterLimit: 100000,
+  extended: true 
+}));
+
+
 app.use((req,res,next)=>{ //Grend access for using API from the browser
 res.setHeader
   //every host/client can send request to this server

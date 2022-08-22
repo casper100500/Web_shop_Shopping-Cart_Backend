@@ -1,4 +1,4 @@
-const {buildSchema} = require('graphql')
+const { buildSchema } = require('graphql')
 
 module.exports = buildSchema(`
 type Product {
@@ -55,7 +55,40 @@ type User {
   _id: ID!
   email: String!
   password: String
- 
+  LastName: String
+  FirstName: String
+  MiddleName: String
+  Sex:String
+  Birthday:String
+  Language:String
+  Image:String
+}
+
+
+input UserInput {
+  userId: String!
+  token: String
+  LastName: String
+  FirstName: String
+  MiddleName: String
+  Sex:String
+  Birthday:String
+  Language:String
+  Image:String
+
+}
+
+type UserData {
+  userId:ID!
+  email: String
+  LastName: String
+  FirstName: String
+  MiddleName: String
+  Sex:String
+  Birthday:String
+  Language:String
+  Image:String
+
 }
 
 type AuthData {
@@ -64,10 +97,6 @@ type AuthData {
   tokenExpiration: Int!
 }
 
-input UserInput {
-  email: String!
-  password: String!
-}
 
 input OrderInput {
   orderCart: ProductsInput!
@@ -100,10 +129,12 @@ input ProductInput {
 type RootQuery {
     productsALL(findStr:String, PageNum:Int, PageLimit:Int): Products
     ordersALL(findStr:String,email:String, PageNum:Int, PageLimit:Int): Orders
+    getUserData(userId:String!,token:String!):UserData!
     login(email:String!,password: String!): AuthData!
 }
 type RootMutation {
     createUser(userInput: UserInput): User
+    updateUser(userInput: UserInput): User
     createOrder(orderInput: OrderInput): OrderPayment
 }
 schema {

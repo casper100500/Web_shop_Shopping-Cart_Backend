@@ -19,3 +19,25 @@ query
     tokenExpiration
   }
 }
+//updateUser
+mutation
+{
+  updateUser(userInput:{
+    userId:"62eb8ab59849b617027ea4fe",
+   
+    FirstName:"MYKOLA222",
+    Sex:"fdfsd"
+  })
+  {
+   
+    email,
+      LastName,
+  FirstName,
+  MiddleName,
+  Sex,
+  Birthday,
+  Language,
+    Image
+    
+  }
+}
