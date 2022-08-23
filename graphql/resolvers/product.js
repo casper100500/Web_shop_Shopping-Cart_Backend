@@ -85,6 +85,56 @@ module.exports =
 
 
 
+    },
+    createUpdateProduct: async args => {
+      console.log('createUpdateProduct')
+      
+      console.log(args)
+  
+  if (!args.productInput._id)
+  {
+    try {
+   
+        const product = new Product({
+          imagePath: args.productInput.imagePath,
+          title: args.productInput.title,
+          description: args.productInput.description,
+          price: args.productInput.price,
+ 
+        })
+  
+        const result = await product.save();
+  
+  
+  
+        return { ...result._doc };
+      }
+      catch (err) {
+        throw err;
+      };
+    }
+    else
+    {
+      console.log('Update product detected')
+      
+
+      console.log('by id...')
+        const objStr=`{"_id":"${args.productInput._id}"}`
+        console.log(objStr)
+        obj = JSON.parse(objStr)
+        const   product = await Product.findOne(obj)
+       // console.log(product)
+        product.imagePath= args.productInput.imagePath
+        product.title= args.productInput.title
+        product.description= args.productInput.description
+        product.price= args.productInput.price
+
+        const result = await product.save();
+  
+  
+  
+        return { ...result._doc };
+    }
     }
     
   

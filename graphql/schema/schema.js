@@ -106,6 +106,14 @@ input OrderInput {
   SessionID:String
 }
 
+input ProductInput {
+  _id:ID
+  imagePath: String!
+  title: String!
+  description: String!
+  price: Int!
+}
+
 input ProductsInput {
   Items:[productItemInput]
   totalQty:Int
@@ -113,12 +121,12 @@ input ProductsInput {
 }
 
 input productItemInput{
- product: ProductInput
+ product: ProductDataInput
  ItmQty:Int
  ItmPrice:Int
 }
 
-input ProductInput {
+input ProductDataInput {
   _id:ID!
   imagePath: String
   title: String!
@@ -134,8 +142,10 @@ type RootQuery {
 }
 type RootMutation {
     createUser(userInput: UserInput): User
+
     updateUser(userInput: UserInput): User
     createOrder(orderInput: OrderInput): OrderPayment
+    createUpdateProduct(productInput: ProductInput): Product
 }
 schema {
     query: RootQuery
