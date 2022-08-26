@@ -7,6 +7,7 @@ type Product {
   title: String!
   description: String!
   price: Int!
+  catalogID: Int!
 }
 
 type Products {
@@ -112,6 +113,7 @@ input ProductInput {
   title: String!
   description: String!
   price: Int!
+  catalogID: Int!
 }
 
 input ProductsInput {
@@ -132,6 +134,7 @@ input ProductDataInput {
   title: String!
   description: String!
   price: Int!
+  catalogID: Int!
 }
 
 type RootQuery {
