@@ -56,7 +56,7 @@ console.log(obj)
       }
 
 
-      await Product.find().count().then((count) => {
+      await Product.find(obj).count().then((count) => {
         TotalCount = count
       })
     }

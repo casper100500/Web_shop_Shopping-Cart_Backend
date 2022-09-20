@@ -144,7 +144,7 @@ type RootQuery {
     login(email:String!,password: String!): AuthData!
 }
 type RootMutation {
-    createUser(userInput: UserInput): User
+    createUser(email: String!, password: String!): User
 
     updateUser(userInput: UserInput): User
     createOrder(orderInput: OrderInput): OrderPayment
