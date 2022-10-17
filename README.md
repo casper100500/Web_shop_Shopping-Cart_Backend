@@ -1,10 +1,10 @@
-# Shopping-Cart (Backend)
-# (NodeJS+ReactJS+MongoDB+GraphQL)
+# Web shop template 'Shopping-Cart' (Backend). NodeJS+ReactJS+MongoDB+GraphQL.
+
 This code belongs to Mykola GORBAN.
 
-Web shop draft from scratch:
-- Backend GraphQL API + MongoDB (Node.js)
-- Frontend React.js
+Web shop template from scratch:
+- Backend - Node.js (GraphQL API + MongoDB)
+- Frontend - React.js
 
 Main futures:
 
@@ -19,11 +19,14 @@ Main futures:
 - Admin mode (add/edit products)
 
 # Usage
-Install all dependencies
+- Install all dependencies
+
 ```sh
 npm install
 ```
-Create and configure your nodemon.json file:
+
+- Create and configure your nodemon.json file:
+
 ```
 {
     "env":
@@ -38,7 +41,8 @@ Create and configure your nodemon.json file:
 }
 ```
 
-Run the server
+- Run the Backend server
+
 ```sh
 npm start
 ```
