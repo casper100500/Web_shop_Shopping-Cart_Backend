@@ -59,7 +59,7 @@ app.get('/',function(req,res){
   
 );
 
-if (1===2)
+if (1===2) // local/cloud MongoDB switch
 {
 
 const mongoDBurl='mongodb://localhost:27017/shopping'
